@@ -1,10 +1,20 @@
 import React from 'react';
 
-import { MeshDistortMaterial } from '@react-three/drei/core';
+import { PointMaterial } from '@react-three/drei/core';
+import { useRef } from 'react';
+import { useFrame } from '@react-three/fiber';
+import { useState } from 'react';
 
 export default function Circle2() {
-    return <mesh rotation={[90,0,20]}>
-        <sphereBufferGeometry attach='geometry' args={[2,100,200]}/>
-        <MeshDistortMaterial color="#66F6FF" attach="material"  distort={0.2}speed={5}  />
-    </mesh>;
+    const ref = useRef()
+    useFrame(() => {ref.current.rotation.y += 0.01})
+    const [hover, sethover ] = useState(false)
+    return <points ref={ref}
+    onPointerOver={(event)=> sethover(true)}
+    onPointerOut={(event)=> sethover(false)}
+     >
+        <sphereBufferGeometry attach='geometry' args={[2.5]}/>
+        <PointMaterial color="#66F6FF" size={hover?"0.04":"0.001"} />
+    </points>;
+
 }
