@@ -14,7 +14,7 @@ export default function Circle2() {
     onPointerOut={(event)=> sethover(false)}
      >
         <sphereBufferGeometry attach='geometry' args={[3]}/>
-        <PointMaterial color="#66F6FF" size={hover?"0.03":"0.01"} />
+        <PointMaterial color="#000" size={hover?"0.03":"0.01"} />
     </points>;
 
 }
