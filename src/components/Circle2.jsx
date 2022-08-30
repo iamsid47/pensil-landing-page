@@ -5,6 +5,7 @@ import { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { useState } from 'react';
 
+
 export default function Circle2() {
     const ref = useRef()
     //useFrame(() => {ref.current.rotation.z += 0.01})
