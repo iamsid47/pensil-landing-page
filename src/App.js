@@ -6,8 +6,9 @@ import Dm from './components/Dm.jsx';
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 import Sidebar from './components/Sidebar.jsx';
 import Navbar from './components/Navbar.jsx';
+import Banner from './components/Banner.jsx';
 
-<script src="../path/to/flowbite/dist/flowbite.js"></script>
+
 
 
 function App() {
@@ -28,12 +29,12 @@ function App() {
   }
   return (
     <>
-    <div className='nav'>
+    <div className='nav sticky top-0'>
       <Navbar />
 </div>
     
         <BrowserRouter>
-        <div className='container grid grid-cols-1 md:grid-cols-5'>
+        <div className='container grid grid-cols-1 md:grid-cols-5 '>
           <div className='grid '>
         <Sidebar>
         <Switch>
@@ -44,11 +45,11 @@ function App() {
         </Switch>
         </Sidebar>
         </div>
-        <div className='grid col-span-3 py-4 px-4'>
-        <div className="grid shadow-lg h-52 border bg-gradient-to-r from-cyan-500 to-blue-500 rounded-md text-white my-2">
-            <span className="text-[20px]">Community banner</span>
-          </div>
+        <div className='grid md:col-span-4 lg:col-span-3  py-4 px-4'>
             <Component />
+        </div>
+        <div>
+
         </div>
         </div>
       </BrowserRouter>

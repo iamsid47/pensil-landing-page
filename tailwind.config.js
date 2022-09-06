@@ -14,14 +14,10 @@ module.exports = {
         'extra-tight': '0.15',
       },
       fontFamily: {
-        mont: ["Montserrat", "sans-serif"],
-        oswald: ["Oswald", "sans-serif"],
-        sign: ['Mrs Saint Delafield', "cursive"],
-        thought: ['Homemade Apple', "cursive"],
+        nunito:['Nunito', "sans-serif"],
        },
     },
   },
   plugins: [
-    require('flowbite/plugin')
   ],
 }

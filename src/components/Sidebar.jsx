@@ -1,33 +1,96 @@
-import React from 'react';
+import React from "react";
+import { useState } from "react";
 
+const Sidebar = ({ Children }) => {
+  const [show, setVisible] = useState(false);
+  const [showli, setListVisible]= useState(false);
+  const [showli2, setListVisible2]= useState(false);
+  const [showli3, setListVisible3]= useState(false);
+  const [showli4, setListVisible4]= useState(false);
 
-
-const Sidebar = ({Children}) => {
-
-    return <div>
-        <div className="grid px-2 py-4" >
-
-          <ul className="px-4 py-2">
-          <a href="/"><li className="my-1 py-1 px-1 text-[14px] rounded-md font-semibold w-52 hover:bg-cyan-400">Dashboard</li></a>
-            <a href="/explore"><li className="my-1 py-1 px-1 text-[14px] rounded-md font-semibold w-52 hover:bg-cyan-400">Explore</li></a>
-            <a href="/events"><li className="my-1 py-1 px-1 text-[14px] rounded-md font-semibold w-52 hover:bg-cyan-400">Events</li></a>
-            <a href="/dm"><li className="my-1 py-1 px-1 text-[14px] rounded-md font-semibold w-52 hover:bg-cyan-400">Direct Message</li></a>
-          </ul>
-          <hr />
-          <ul className="px-4 py-4">
-            <li className="font-semibold text-[14px]">APPS</li>
-            <li className="my-1 py-1 px-1 text-[14px] rounded-md font-semibold w-52 hover:bg-cyan-400">Calender</li>
-            <li className="my-1 py-1 px-1 text-[14px] rounded-md font-semibold w-52 hover:bg-cyan-400">Kanban</li>
-          </ul>
-          <hr />
-          <ul className="px-4 py-4">
-            <li className="font-semibold text-[14px]">GROUPS</li>
-            <li className="my-1 py-1 px-1 text-[14px] rounded-md font-semibold w-52 hover:bg-cyan-400">Gaming</li>
-            <li className="my-1 py-1 px-1 text-[14px] rounded-md font-semibold w-52 hover:bg-cyan-400">Python</li>
-            <li className="my-1 py-1 px-1 text-[14px] rounded-md font-semibold w-52 hover:bg-cyan-400">Java</li>
+  return (
+    <div>
+      <div className="grid px-2 py-4 hidden md:block">
+        <ul className="px-4 py-2">
+          <a href="/">
+            <li className="my-1 py-1 px-1 text-[14px] rounded-md font-semibold w-52 hover:bg-cyan-400">
+              Dashboard
+            </li>
+          </a>
+          <a href="/explore">
+            <li className="my-1 py-1 px-1 text-[14px] rounded-md font-semibold w-52 hover:bg-cyan-400">
+              Explore
+            </li>
+          </a>
+          <a href="/events">
+            <li className="my-1 py-1 px-1 text-[14px] rounded-md font-semibold w-52 hover:bg-cyan-400">
+              Events
+            </li>
+          </a>
+          <a href="/dm">
+            <li className="my-1 py-1 px-1 text-[14px] rounded-md font-semibold w-52 hover:bg-cyan-400">
+              Direct Message
+            </li>
+          </a>
         </ul>
+        <hr />
+        <ul className="px-4 py-4">
+          <li className="font-semibold text-[14px]">APPS</li>
+          <li className="my-1 py-1 px-1 text-[14px] rounded-md font-semibold w-52 hover:bg-cyan-400">
+            Calender
+          </li>
+          <li className="my-1 py-1 px-1 text-[14px] rounded-md font-semibold w-52 hover:bg-cyan-400">
+            Kanban
+          </li>
+        </ul>
+        <hr />
+        <div className="px-4 py-4">
+        <button
+          className=" text-left font-semibold text-[14px]"
+          onClick={() => setVisible(!show)}
+        >
+          GROUPS
+        </button>
+        {show ? (
+          <ul>
+            <li className="my-1 py-1 px-1 text-[14px] rounded-md font-semibold w-52 hover:bg-cyan-400">
+              <button onClick={() => setListVisible(!showli)}>Get Started</button>
+              {showli ? (
+                <>
+              <li>Introduction</li>
+              <li>Introduction</li>
+              </>):null}
+            </li>
+            <li className="my-1 py-1 px-1 text-[14px] rounded-md font-semibold w-52 hover:bg-cyan-400">
+              <button onClick={() => setListVisible2(!showli2)}>Announcement</button>
+              {showli2 ? (
+                <>
+              <li>Introduction</li>
+              <li>Introduction</li>
+              </>):null}
+            </li>
+            <li className="my-1 py-1 px-1 text-[14px] rounded-md font-semibold w-52 hover:bg-cyan-400">
+            <button onClick={() => setListVisible3(!showli3)}>Announcement</button>
+              {showli3 ? (
+                <>
+              <li>Introduction</li>
+              <li>Introduction</li>
+              </>):null}
+            </li>
+            <li className="my-1 py-1 px-1 text-[14px] rounded-md font-semibold w-52 hover:bg-cyan-400">
+            <button onClick={() => setListVisible4(!showli4)}>Announcement</button>
+              {showli4 ? (
+                <>
+              <li>Introduction</li>
+              <li>Introduction</li>
+              </>):null}
+            </li>
+          </ul>
+        ) : null}
         </div>
+      </div>
     </div>
-}
+  );
+};
 
 export default Sidebar;

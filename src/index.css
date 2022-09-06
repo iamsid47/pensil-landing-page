@@ -2,12 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Montserrat:wght@400;500;700;900&family=Mrs+Saint+Delafield&family=Oswald:wght@400;500;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,300&display=swap');
+
 
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: nunito;
 
 }
 
