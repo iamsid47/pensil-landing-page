@@ -21,7 +21,7 @@ function Dashboard() {
                   />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-[18px] font-medium text-gray-900 truncate font-semibold">
+                  <p className="text-[18px] text-gray-900 truncate font-semibold">
                     Welcome to emoji Get Started
                   </p>
                   <p className="font-regular mt-1">
@@ -47,7 +47,7 @@ function Dashboard() {
                   />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-[18px] font-medium text-gray-900 truncate  font-semibold">
+                  <p className="text-[18px]  text-gray-900 truncate  font-semibold">
                     Saakshi Raut
                   </p>
                   <p className="font-regular mt-1">
@@ -73,7 +73,7 @@ function Dashboard() {
                   />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-[18px] font-medium text-gray-900 truncate  font-semibold">
+                  <p className="text-[18px]  text-gray-900 truncate  font-semibold">
                     Saakshi Raut
                   </p>
                   <p className="font-regular mt-1">
