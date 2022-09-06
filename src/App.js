@@ -5,6 +5,8 @@ import Dm from "./components/Dm.jsx";
 import { BrowserRouter, Router, Route } from "react-router-dom";
 import Sidebar from "./components/Sidebar.jsx";
 import Navbar from "./components/Navbar.jsx";
+import Introduction from "./pages/Introduction.jsx";
+import Kanban from "./pages/Kanban.jsx";
 import Banner from "./components/Banner.jsx";
 
 function App() {
@@ -22,6 +24,12 @@ function App() {
     case "/dm":
       Component = Dm;
       break;
+    case "/Introduction":
+      Component = Introduction;
+      break;
+    case "/Kanban":
+      Component = Kanban;
+      break;
   }
   return (
     <>
@@ -38,6 +46,8 @@ function App() {
                 <Route path="/explore" component={Explore}></Route>
                 <Route path="/events" component={Events}></Route>
                 <Route path="/dm" component={Dm}></Route>
+                <Route path="/Introduction" component={Introduction}></Route>
+                <Route path="/Kanban" component={Kanban}></Route>
               </Router>
             </Sidebar>
           </div>

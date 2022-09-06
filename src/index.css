@@ -18,12 +18,12 @@ body {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #000000;
+  background: #f3f3f3;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #edeaff;
+  background: #b7b5c1;
 }
 
 /* Handle on hover */

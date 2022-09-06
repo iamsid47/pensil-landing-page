@@ -10,26 +10,26 @@ const Sidebar = ({ Children }) => {
 
   return (
     <div>
-      <div className="grid px-2 py-4 hidden md:block">
+      <div className="grid px-2 py-4 md:block sticky top-20">
         <ul className="px-4 py-2">
           <li className="font-semibold text-[14px] text-gray-500">MAIN</li>
           <a href="/">
-            <li className="my-1 py-1 px-1 text-[14px] rounded-md font-semibold w-52 hover:bg-cyan-400">
+            <li className="my-1 py-1 px-2 text-[14px] rounded-md font-semibold w-52 hover:bg-blue-500 hover:text-gray-100">
               Dashboard
             </li>
           </a>
           <a href="/explore">
-            <li className="my-1 py-1 px-1 text-[14px] rounded-md font-semibold w-52 hover:bg-cyan-400">
+            <li className="my-1 py-1 px-2 text-[14px] rounded-md font-semibold w-52 hover:bg-blue-500 hover:text-gray-100">
               Explore
             </li>
           </a>
           <a href="/events">
-            <li className="my-1 py-1 px-1 text-[14px] rounded-md font-semibold w-52 hover:bg-cyan-400">
+            <li className="my-1 py-1 px-2 text-[14px] rounded-md font-semibold w-52 hover:bg-blue-500 hover:text-gray-100">
               Events
             </li>
           </a>
           <a href="/dm">
-            <li className="my-1 py-1 px-1 text-[14px] rounded-md font-semibold w-52 hover:bg-cyan-400">
+            <li className="my-1 py-1 px-2 text-[14px] rounded-md font-semibold w-52 hover:bg-blue-500 hover:text-gray-100">
               Direct Message
             </li>
           </a>
@@ -37,12 +37,14 @@ const Sidebar = ({ Children }) => {
         <hr />
         <ul className="px-4 py-4">
           <li className="font-semibold text-[14px] text-gray-500">APPS</li>
-          <li className="my-1 py-1 px-1 text-[14px] rounded-md font-semibold w-52 hover:bg-cyan-400">
+          <li className="my-1 py-1 px-2 text-[14px] rounded-md font-semibold w-52 hover:bg-blue-500 hover:text-gray-100">
             Calender
           </li>
-          <li className="my-1 py-1 px-1 text-[14px] rounded-md font-semibold w-52 hover:bg-cyan-400">
-            Kanban
-          </li>
+          <a href="/kanban">
+            <li className="my-1 py-1 px-2 text-[14px] rounded-md font-semibold w-52 hover:bg-blue-500 hover:text-gray-100">
+              Kanban
+            </li>
+          </a>
         </ul>
         <hr />
         <div className="px-4 py-4">
@@ -54,7 +56,7 @@ const Sidebar = ({ Children }) => {
           </button>
           {show ? (
             <ul>
-              <li className="my-1 py-1 px-1 text-[14px] rounded-md font-semibold w-52 hover:bg-cyan-400">
+              <li className="my-1 py-1 px-2 text-[14px] rounded-md font-semibold w-52 hover:bg-blue-500 hover:text-gray-100">
                 <button onClick={() => setListVisible(!showli)}>
                   Get Started
                 </button>
@@ -65,7 +67,7 @@ const Sidebar = ({ Children }) => {
                   </>
                 ) : null}
               </li>
-              <li className="my-1 py-1 px-1 text-[14px] rounded-md font-semibold w-52 hover:bg-cyan-400">
+              <li className="my-1 py-1 px-2 text-[14px] rounded-md font-semibold w-52 hover:bg-blue-500 hover:text-gray-100">
                 <button onClick={() => setListVisible2(!showli2)}>
                   Announcement
                 </button>
@@ -76,7 +78,7 @@ const Sidebar = ({ Children }) => {
                   </>
                 ) : null}
               </li>
-              <li className="my-1 py-1 px-1 text-[14px] rounded-md font-semibold w-52 hover:bg-cyan-400">
+              <li className="my-1 py-1 px-2 text-[14px] rounded-md font-semibold w-52 hover:bg-blue-500 hover:text-gray-100">
                 <button onClick={() => setListVisible3(!showli3)}>
                   Announcement
                 </button>
@@ -87,7 +89,7 @@ const Sidebar = ({ Children }) => {
                   </>
                 ) : null}
               </li>
-              <li className="my-1 py-1 px-1 text-[14px] rounded-md font-semibold w-52 hover:bg-cyan-400">
+              <li className="my-1 py-1 px-2 text-[14px] rounded-md font-semibold w-52 hover:bg-blue-500 hover:text-gray-100">
                 <button onClick={() => setListVisible4(!showli4)}>
                   Announcement
                 </button>

@@ -6,7 +6,7 @@ function Navbar() {
   const [menu, showMenu] = useState(false);
   return (
     <>
-      <div className="nav bg-white px-2 py-2 border ">
+      <div className="sticky bg-white px-2 py-2 border">
         <div className="flex justify-between  mx-4">
           <button
             className="block md:hidden items-center"

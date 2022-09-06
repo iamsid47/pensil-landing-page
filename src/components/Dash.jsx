@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 import Banner from "./Banner";
+import Team from "./Team";
 
 function Dashboard() {
   return (
     <div>
       <Banner />
+      <div className="pt-2 mt-10">
+        <h1 className="text-3xl px-4 font-medium pb-4">Quick Updates</h1>
+      </div>
       <div className="p-2 w-full  bg-white rounded-lg border shadow-md sm:py-4 px-8 ">
         <div className="flow-root">
           <ul
@@ -92,6 +96,7 @@ function Dashboard() {
           </ul>
         </div>
       </div>
+      <Team />
     </div>
   );
 }
