@@ -7,6 +7,7 @@ import Sidebar from "./components/Sidebar.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Introduction from "./pages/Introduction.jsx";
 import Kanban from "./pages/Kanban.jsx";
+import UserInputForm from "./pages/form/UserInputForm.jsx";
 import Banner from "./components/Banner.jsx";
 
 function App() {
@@ -30,6 +31,9 @@ function App() {
     case "/Kanban":
       Component = Kanban;
       break;
+    case "/form":
+      Component = UserInputForm;
+      break;
   }
   return (
     <>
@@ -48,6 +52,7 @@ function App() {
                 <Route path="/dm" component={Dm}></Route>
                 <Route path="/Introduction" component={Introduction}></Route>
                 <Route path="/Kanban" component={Kanban}></Route>
+                <Route path="/form" component={UserInputForm}></Route>
               </Router>
             </Sidebar>
           </div>
