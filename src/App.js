@@ -48,7 +48,6 @@ function App() {
     <>
       <div className="nav sticky top-0">
         <Navigation />
-        <Navbar />
       </div>
 
       <BrowserRouter>

@@ -1,106 +1,161 @@
-import React from "react";
+import { Fragment } from "react";
+import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
-function Navigation() {
-  return (
-    <div>
-      <section
-        className="relative block w-full py-6 leading-10 text-center text-indigo-900 bg-black"
-        data-tails-scripts="//unpkg.com/alpinejs"
-      >
-        <div className="w-full px-6 mx-auto leading-10 text-center lg:px-8 max-w-7xl">
-          <div className="box-border flex flex-wrap items-center justify-between -mx-4 text-indigo-900">
-            <div className="relative z-10 flex items-center w-auto px-4 leading-10 lg:flex-grow-0 lg:flex-shrink-0 lg:text-left">
-              <a
-                href="/"
-                className="box-border inline-block text-2xl font-medium leading-tight text-left text-white no-underline bg-transparent cursor-pointer focus:no-underline"
-              >
-                Pencil
-              </a>
-            </div>
+const navigation = [
+  { name: "Home", href: "/", current: true },
+  { name: "Login", href: "/login", current: false },
+  { name: "Settings", href: "/settings", current: false },
+  { name: "Community", href: "/form", current: false },
+];
 
-            <div className="absolute left-0 z-0 justify-center hidden w-full px-4 -ml-5 space-x-4 font-medium leading-10 md:flex lg:-ml-0 lg:space-x-6 md:flex-grow-0 md:text-left lg:text-center">
-              <a
-                href="/login"
-                x-data="{ hover: false }"
-                className="relative inline-block px-0.5 text-base font-medium leading-tight text-gray-200 uppercase transition duration-150 ease hover:text-white"
-              >
-                <span className="block">Login</span>
-              </a>
-              <a
-                href="#_"
-                x-data="{ hover: false }"
-                className="relative inline-block px-0.5 text-base font-medium leading-tight text-gray-200 uppercase transition duration-150 ease hover:text-white"
-              >
-                <span className="block">Plans</span>
-              </a>
-              <a
-                href="#_"
-                x-data="{ hover: false }"
-                className="relative inline-block px-0.5 text-base font-medium leading-tight text-gray-200 uppercase transition duration-150 ease hover:text-white"
-              >
-                <span className="block">Features</span>
-              </a>
-              <a
-                href="#_"
-                x-data="{ hover: false }"
-                className="relative inline-block px-0.5 text-base font-medium leading-tight text-gray-200 uppercase transition duration-150 ease hover:text-white"
-              >
-                <span className="block">About</span>
-              </a>
-            </div>
-            <div className="relative items-center hidden px-4 mt-2 space-x-5 font-medium leading-10 md:flex md:flex-grow-0 md:flex-shrink-0 md:mt-0 md:text-right lg:flex-grow-0 lg:flex-shrink-0">
-              <a
-                href="/settings"
-                x-data="{ hover: false }"
-                className="relative inline-block px-0.5 text-base font-medium leading-tight text-gray-200 uppercase transition duration-150 ease hover:text-white"
-              >
-                <span className="block">Account</span>
-                <span className="absolute bottom-0 left-0 inline-block w-full h-2 -mb-2 overflow-hidden">
-                  <span className="absolute inset-0 inline-block w-full h-full transform translate-x-0 bg-black"></span>
-                  <svg
-                    className="w-auto h-full text-blue-600 fill-current"
-                    viewBox="0 0 84 6"
-                    xmlns="http://www.w3.org/2000/svg"
-                    data-primary="blue-600"
-                  >
-                    <g stroke="none" stroke-width="1" fill-rule="evenodd">
-                      <g transform="translate(-8)" fill-rule="nonzero">
-                        <path d="M90.3.9c-1.8 0-2.8.7-3.6 1.4-.7.5-1.2.9-2.4.9s-1.7-.4-2.4-.9c-.8-.6-1.8-1.4-3.6-1.4s-2.8.7-3.6 1.4c-.7.5-1.2.9-2.4.9-1.1 0-1.7-.4-2.4-.9-.8-.6-1.8-1.4-3.6-1.4s-2.8.7-3.6 1.4c-.7.5-1.2.9-2.4.9s-1.7-.4-2.4-.9c-.8-.6-1.8-1.4-3.6-1.4s-2.8.7-3.6 1.4c-.7.5-1.2.9-2.4.9-1.1 0-1.7-.4-2.4-.9-.8-.6-1.8-1.4-3.6-1.4s-2.8.7-3.6 1.4c-.7.5-1.2.9-2.4.9-1.1 0-1.7-.4-2.4-.9-.8-.6-1.8-1.4-3.6-1.4s-2.8.7-3.6 1.4c-.7.5-1.2.9-2.4.9s-1.7-.4-2.4-.9c-.8-.6-1.8-1.4-3.6-1.4s-2.8.7-3.6 1.4c-.7.5-1.2.9-2.4.9-1.1 0-1.7-.4-2.4-.9-.8-.6-1.9 1-1.2 1.5.8.6 1.8 1.4 3.6 1.4s2.8-.7 3.6-1.4c.7-.5 1.2-.9 2.4-.9s1.7.4 2.4.9c.8.6 1.8 1.4 3.6 1.4s2.8-.7 3.6-1.4c.7-.5 1.2-.9 2.4-.9 1.1 0 1.7.4 2.4.9.8.6 1.8 1.4 3.6 1.4s2.8-.7 3.6-1.4c.7-.5 1.2-.9 2.4-.9 1.1 0 1.7.4 2.4.9.8.6 1.8 1.4 3.6 1.4s2.8-.7 3.6-1.4c.7-.5 1.2-.9 2.4-.9s1.7.4 2.4.9c.8.6 1.8 1.4 3.6 1.4s2.8-.7 3.6-1.4c.7-.5 1.2-.9 2.4-.9 1.1 0 1.7.4 2.4.9.8.6 1.8 1.4 3.6 1.4s2.8-.7 3.6-1.4c.7-.5 1.2-.9 2.4-.9s1.7.4 2.4.9c.8.6 1.8 1.4 3.6 1.4s2.8-.7 3.6-1.4c.7-.5 1.2-.9 2.4-.9.6 0 1-.4 1-1s-.5-1-1-1z"></path>
-                      </g>
-                    </g>
-                  </svg>
-                </span>
-              </a>
-              <a
-                href="/form"
-                className="inline-flex uppercase items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-blue-600 border border-blue-600 rounded-md shadow-sm focus:ring-offset-gray-900 hover:bg-blue-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600"
-                data-rounded="rounded-md"
-                data-primary="blue-600"
-              >
-                Settings
-              </a>
-            </div>
-            <div className="flex items-center justify-center h-full mr-5 text-white md:hidden">
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 8h16M4 16h16"
-                ></path>
-              </svg>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-  );
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
 }
 
-export default Navigation;
+export default function Example() {
+  return (
+    <Disclosure as="nav" className="bg-gray-100">
+      {({ open }) => (
+        <>
+          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+            <div className="relative flex h-16 items-center justify-between">
+              <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                {/* Mobile menu button*/}
+                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 hover:bg-gray-800 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                  <span className="sr-only">Open main menu</span>
+                  {open ? (
+                    <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
+                  ) : (
+                    <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+                  )}
+                </Disclosure.Button>
+              </div>
+              <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                <div className="flex flex-shrink-0 items-center lg:mr-10">
+                  <a className="font-bold text-2xl" href="/">
+                    Pencil
+                  </a>
+                </div>
+                <div className="hidden sm:ml-6 sm:block">
+                  <div className="flex space-x-4">
+                    {navigation.map((item) => (
+                      <a
+                        key={item.name}
+                        href={item.href}
+                        className={classNames(
+                          item.current
+                            ? "bg-blue-700 text-white"
+                            : "text-gray-900 hover:bg-blue-600 hover:text-white transition duration-300",
+                          "px-3 py-2 rounded-md text-sm font-medium"
+                        )}
+                        aria-current={item.current ? "page" : undefined}
+                      >
+                        {item.name}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                <button
+                  type="button"
+                  className="rounded-full bg-green-200 p-1 text-gray-600 hover:text-gray-800 transition duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                >
+                  <span className="sr-only">View notifications</span>
+                  <BellIcon className="h-6 w-6" aria-hidden="true" />
+                </button>
+
+                {/* Profile dropdown */}
+                <Menu as="div" className="relative ml-3">
+                  <div>
+                    <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                      <span className="sr-only">Open user menu</span>
+                      <img
+                        className="h-8 w-8 rounded-full"
+                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        alt=""
+                      />
+                    </Menu.Button>
+                  </div>
+                  <Transition
+                    as={Fragment}
+                    enter="transition ease-out duration-100"
+                    enterFrom="transform opacity-0 scale-95"
+                    enterTo="transform opacity-100 scale-100"
+                    leave="transition ease-in duration-75"
+                    leaveFrom="transform opacity-100 scale-100"
+                    leaveTo="transform opacity-0 scale-95"
+                  >
+                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            href="/settings"
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700"
+                            )}
+                          >
+                            Account
+                          </a>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            href="#"
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700"
+                            )}
+                          >
+                            Billing
+                          </a>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            href="/"
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-red-700 hover:bg-red-200 hover:text-red-600"
+                            )}
+                          >
+                            Sign out
+                          </a>
+                        )}
+                      </Menu.Item>
+                    </Menu.Items>
+                  </Transition>
+                </Menu>
+              </div>
+            </div>
+          </div>
+
+          <Disclosure.Panel className="sm:hidden">
+            <div className="space-y-1 px-2 pt-2 pb-3">
+              {navigation.map((item) => (
+                <Disclosure.Button
+                  key={item.name}
+                  as="a"
+                  href={item.href}
+                  className={classNames(
+                    item.current
+                      ? "bg-blue-700 text-white"
+                      : "text-gray-800 hover:bg-blue-600 hover:text-white transition duration-300",
+                    "block px-10 py-2 rounded-md text-base font-medium"
+                  )}
+                  aria-current={item.current ? "page" : undefined}
+                >
+                  {item.name}
+                </Disclosure.Button>
+              ))}
+            </div>
+          </Disclosure.Panel>
+        </>
+      )}
+    </Disclosure>
+  );
+}
