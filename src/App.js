@@ -4,7 +4,6 @@ import Events from "./components/Event.jsx";
 import Dm from "./components/Dm.jsx";
 import { BrowserRouter, Router, Route } from "react-router-dom";
 import Sidebar from "./components/Sidebar.jsx";
-import Navbar from "./components/Navbar.jsx";
 import Introduction from "./pages/Introduction.jsx";
 import UserInputForm from "./pages/form/UserInputForm.jsx";
 import LoginForm from "./pages/form/LoginForm.jsx";
