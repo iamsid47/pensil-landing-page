@@ -10,6 +10,7 @@ import Settings from "./pages/form/Settings.jsx";
 import KanbanBoard from "./pages/KanbanBoard.tsx";
 import Navigation from "./components/Navigation.jsx";
 import UserInputForm from "./pages/form/UserInputForm.jsx";
+import Calendar from "./pages/Calendar.tsx";
 
 function App() {
   let Component;
@@ -36,8 +37,8 @@ function App() {
     case "/Form":
       Component = UserInputForm;
       break;
-    default:
-      alert("something went wrong.");
+    case "/Calendar":
+      Component = Calendar;
       break;
   }
 
@@ -61,6 +62,7 @@ function App() {
                   <Route path="/login" component={LoginForm}></Route>
                   <Route path="/Settings" component={Settings}></Route>
                   <Route path="/KanbanBoard" component={KanbanBoard}></Route>
+                  <Route path="/Calendar" component={KanbanBoard}></Route>
                 </Router>
               </Sidebar>
             </div>
