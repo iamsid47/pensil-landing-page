@@ -226,7 +226,6 @@ const Team = () => {
               </div>
               <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-yellow-400 via-purple-400 to-pink-500"></div>
             </div>
-<<<<<<< HEAD
 
             <div className="relative rounded-lg p-0.5 overflow-hidden bg-transparent shadow-sm hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
               <div className="relative z-10 flex items-center w-full h-full px-6 py-5 bg-black rounded-lg">
@@ -239,8 +238,12 @@ const Team = () => {
                 </div>
                 <div className="flex-1 min-w-0">
                   <a href="#_" className="focus:outline-none">
-                    <p className="text-lg font-medium text-gray-100">Jack Simons</p>
-                    <p className="text-sm text-gray-400 truncate">Lead Developer</p>
+                    <p className="text-lg font-medium text-gray-100">
+                      Jack Simons
+                    </p>
+                    <p className="text-sm text-gray-400 truncate">
+                      Lead Developer
+                    </p>
                   </a>
                 </div>
                 <div className="flex-1 flex-grow-0 pr-2 text-gray-200">
@@ -280,7 +283,9 @@ const Team = () => {
                 </div>
                 <div className="flex-1 min-w-0">
                   <a href="#_" className="focus:outline-none">
-                    <p className="text-lg font-medium text-gray-100">Fred Hanson</p>
+                    <p className="text-lg font-medium text-gray-100">
+                      Fred Hanson
+                    </p>
                     <p className="text-sm text-gray-400 truncate">Developer</p>
                   </a>
                 </div>
@@ -309,8 +314,6 @@ const Team = () => {
               </div>
               <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-pink-500 via-purple-500 to-yellow-400"></div>
             </div>
-=======
->>>>>>> 7d67eea962a60339d03b99434dc61b324622345c
           </div>
         </div>
       </section>

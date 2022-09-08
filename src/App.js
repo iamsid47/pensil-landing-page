@@ -7,7 +7,7 @@ import Sidebar from "./components/Sidebar.jsx";
 import Introduction from "./pages/Introduction.jsx";
 import LoginForm from "./pages/form/LoginForm.jsx";
 import Settings from "./pages/form/Settings.jsx";
-import KanbanBoard from "./pages/KanbanBoard.jsx";
+import KanbanBoard from "./pages/KanbanBoard.tsx";
 import Navigation from "./components/Navigation.jsx";
 import UserInputForm from "./pages/form/UserInputForm.jsx";
 
@@ -30,8 +30,8 @@ function App() {
     case "/Introduction":
       Component = Introduction;
       break;
-    case "/Kanban":
-      Component = Kanban;
+    case "/KanbanBoard":
+      Component = KanbanBoard;
       break;
     case "/Form":
       Component = UserInputForm;
@@ -45,7 +45,7 @@ function App() {
     <>
       <div className="">
         <div className="nav sticky top-0">
-          <Navbar />
+          <Navigation />
         </div>
 
         <BrowserRouter>
