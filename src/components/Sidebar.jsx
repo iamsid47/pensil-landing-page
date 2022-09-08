@@ -10,7 +10,7 @@ const Sidebar = ({ Children }) => {
 
   return (
     <div>
-      <div className="grid px-2 py-4 md:block sticky top-20">
+      <div className="lg:grid px-2 py-4 md:block sticky top-20">
         <ul className="px-4 py-2">
           <li className="font-semibold text-[14px] text-gray-500">MAIN</li>
           <a href="/">
@@ -40,7 +40,7 @@ const Sidebar = ({ Children }) => {
           <li className="my-1 py-1 px-2 text-[14px] rounded-md font-semibold w-52 hover:bg-blue-500 hover:text-gray-100">
             Calender
           </li>
-          <a href="/kanban">
+          <a href="/KanbanBoard">
             <li className="my-1 py-1 px-2 text-[14px] rounded-md font-semibold w-52 hover:bg-blue-500 hover:text-gray-100">
               Kanban
             </li>

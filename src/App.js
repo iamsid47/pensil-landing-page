@@ -6,8 +6,11 @@ import { BrowserRouter, Router, Route } from "react-router-dom";
 import Sidebar from "./components/Sidebar.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Introduction from "./pages/Introduction.jsx";
-import Kanban from "./pages/Kanban.jsx";
 import UserInputForm from "./pages/form/UserInputForm.jsx";
+import LoginForm from "./pages/form/LoginForm.jsx";
+import Settings from "./pages/form/Settings.jsx";
+import KanbanBoard from "./pages/KanbanBoard.jsx";
+import Navigation from "./components/Navigation.jsx";
 import Banner from "./components/Banner.jsx";
 
 function App() {
@@ -28,16 +31,23 @@ function App() {
     case "/Introduction":
       Component = Introduction;
       break;
-    case "/Kanban":
-      Component = Kanban;
-      break;
     case "/form":
       Component = UserInputForm;
+      break;
+    case "/login":
+      Component = LoginForm;
+      break;
+    case "/settings":
+      Component = Settings;
+      break;
+    case "/KanbanBoard":
+      Component = KanbanBoard;
       break;
   }
   return (
     <>
       <div className="nav sticky top-0">
+        <Navigation />
         <Navbar />
       </div>
 
@@ -51,8 +61,10 @@ function App() {
                 <Route path="/events" component={Events}></Route>
                 <Route path="/dm" component={Dm}></Route>
                 <Route path="/Introduction" component={Introduction}></Route>
-                <Route path="/Kanban" component={Kanban}></Route>
                 <Route path="/form" component={UserInputForm}></Route>
+                <Route path="/login" component={LoginForm}></Route>
+                <Route path="/Settings" component={Settings}></Route>
+                <Route path="/KanbanBoard" component={KanbanBoard}></Route>
               </Router>
             </Sidebar>
           </div>

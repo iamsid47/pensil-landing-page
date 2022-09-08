@@ -6,6 +6,8 @@
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@headlessui/react": "^1.7.0",
+    "@heroicons/react": "^2.0.10",
     "@react-three/drei": "^9.17.1",
     "@react-three/fiber": "^8.2.0",
     "@syncfusion/ej2-react-kanban": "^20.2.45",

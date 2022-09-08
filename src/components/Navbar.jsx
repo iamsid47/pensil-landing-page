@@ -27,9 +27,16 @@ function Navbar() {
             />
           </span>
           <span className="text-[18px] hidden md:block py-3">Pencil</span>
-          <div>
-            <button className="leding-10 text-[14px] mr-4 py-3">Login</button>
-            <button className="leding-10 text-[14px] py-3">Settings</button>
+          <div className="py-3">
+            <a href="/login" className="leding-10 text-[14px] mr-4 py-3">
+              Login
+            </a>
+            <a
+              href="/settings"
+              className="hidden lg:inline-block leding-10 text-[14px] py-3"
+            >
+              Settings
+            </a>
           </div>
         </div>
       </div>
