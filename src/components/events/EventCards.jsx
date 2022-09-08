@@ -6,18 +6,18 @@ function EventCards() {
       <section className="w-full sm:p-8">
         <div className="grid grid-cols-1 mx-auto max-w-7xl lg:grid-cols-2 md:gap-8">
           <div
-            className="overflow-hidden text-center bg-black rounded-xl"
+            className="overflow-hidden text-center bg-black rounded-xl my-5 lg:my-2"
             data-rounded=""
             data-rounded-max="rounded-full"
           >
             <div className="px-5 py-20 md:px-5 md:py-5">
-              <img
-                src="https://cdn.devdojo.com/images/april2021/apple-tv-large.png"
-                className="w-auto h-10 mx-auto mt-8 mb-7"
-              />
+              <div className="w-auto h-10 mx-auto mt-8 mb-7">
+                <h1 className="text-3xl text-white uppercase leading-tight font-extrabold">
+                  #LATEST
+                </h1>
+              </div>
               <p className="text-xl text-gray-100">
-                Get 1 year of Apple TV+ free <br />
-                when you buy a Mac
+                Upcoming Coding Event <br /> @ 7:00 PM IST
               </p>
               <div className="flex flex-col items-center justify-center my-7 sm:flex-row sm:space-x-5">
                 <a
@@ -62,27 +62,24 @@ function EventCards() {
                 </a>
               </div>
             </div>
-            <img src="https://cdn.devdojo.com/images/april2021/apple-tv-cards.jpg" />
+            <img src="https://source.unsplash.com/random/1280x720/?coding" />
           </div>
 
           <div
-            className="relative overflow-hidden text-center bg-gray-100 rounded-xl"
+            className="relative overflow-hidden text-center bg-gray-100 rounded-xl my-5 lg:my-2"
             data-rounded=""
             data-rounded-max="rounded-full"
           >
             <div className="relative z-20 px-5 py-10 sm:py-20 md:px-5 md:py-5 h-72 md:h-auto">
-              <img
-                src="https://cdn.devdojo.com/images/april2021/apple-card-logo.png"
-                className="w-auto mx-auto mt-8 transform -translate-x-3 h-9 mb-7"
-              />
-              <p className="text-xl text-gray-800">
+              <div className="w-auto mx-auto mt-8 transform -translate-x-3 h-9 mb-7" />
+              <p className="text-xl text-gray-100">
                 Get 3% Daily Cash back on purchases from <br />
                 Apple when you use Apple Card.
               </p>
               <div className="flex flex-col items-center justify-center my-7 sm:flex-row sm:space-x-5">
                 <a
                   href="#_"
-                  className="flex items-center w-auto mx-auto text-xl leading-tight text-center text-gray-800 hover:underline sm:mx-0"
+                  className="flex items-center w-auto mx-auto text-xl leading-tight text-center text-blue-500 hover:underline sm:mx-0"
                 >
                   <span>Learn more</span>
                   <svg
@@ -103,13 +100,13 @@ function EventCards() {
               </div>
             </div>
             <img
-              src="https://cdn.devdojo.com/images/april2021/apple-card.jpg"
+              src="https://source.unsplash.com/random/1280x720/?aesthetic-dark"
               className="relative inset-0 object-cover w-full h-full lg:mt-0 -mt-72 lg:absolute"
             />
           </div>
 
           <div
-            className="overflow-hidden text-center bg-rose-100 rounded-xl"
+            className="overflow-hidden text-center bg-rose-100 rounded-xl my-5 lg:my-2"
             data-rounded=""
             data-rounded-max="rounded-full"
           >
@@ -119,8 +116,7 @@ function EventCards() {
                 className="w-auto h-10 mx-auto mt-8 mb-7"
               />
               <p className="text-xl text-gray-800">
-                Get 3 months of Apple Arcade free <br />
-                when you buy a Mac.
+                Save Water and Clean The Environment Group Gathering
               </p>
               <div className="flex flex-col items-center justify-center my-7 sm:flex-row sm:space-x-5">
                 <a
@@ -165,11 +161,11 @@ function EventCards() {
                 </a>
               </div>
             </div>
-            <img src="https://cdn.devdojo.com/images/april2021/apple-arcade.jpg" />
+            <img src="https://source.unsplash.com/random/1280x720/?cool" />
           </div>
 
           <div
-            className="relative overflow-hidden text-center bg-gray-100 rounded-xl"
+            className="relative overflow-hidden text-center bg-gray-100 rounded-xl my-5 lg:my-2"
             data-rounded=""
             data-rounded-max="rounded-full"
           >
