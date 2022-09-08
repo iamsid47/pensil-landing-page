@@ -1,15 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { registerLicense } from "@syncfusion/ej2-base";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+registerLicense(
+  "ORg4AjUWIQA/Gnt2VVhiQlFaclxJXGNWdkx0RWFbb19yflBHal9ZVBYiSV9jS3xTf0VrWH1bdXVcRWFaUQ=="
+);
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-
-    <App />   
-
+    <App />
   </React.StrictMode>
 );
 

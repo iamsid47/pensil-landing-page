@@ -36,9 +36,11 @@ const Sidebar = ({ Children }) => {
         <hr />
         <ul className="px-4 py-4">
           <li className="font-semibold text-[14px] text-gray-500">APPS</li>
-          <li className="my-1 py-1 px-2 text-[14px] rounded-md font-semibold w-52 hover:bg-blue-500 hover:text-gray-100">
-            📅 Calender
-          </li>
+          <a href="/Calendar">
+            <li className="my-1 py-1 px-2 text-[14px] rounded-md font-semibold w-52 hover:bg-blue-500 hover:text-gray-100">
+              📅 Calender
+            </li>
+          </a>
           <a href="/KanbanBoard">
             <li className="my-1 py-1 px-2 text-[14px] rounded-md font-semibold w-52 hover:bg-blue-500 hover:text-gray-100">
               ✅ Kanban

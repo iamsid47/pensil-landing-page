@@ -8,8 +8,9 @@ import Introduction from "./pages/Introduction.jsx";
 import UserInputForm from "./pages/form/UserInputForm.jsx";
 import LoginForm from "./pages/form/LoginForm.jsx";
 import Settings from "./pages/form/Settings.jsx";
-import KanbanBoard from "./pages/KanbanBoard.jsx";
+import KanbanBoard from "./pages/KanbanBoard.tsx";
 import Navigation from "./components/Navigation.jsx";
+import Calendar from "./pages/Calendar.tsx";
 import Banner from "./components/Banner.jsx";
 
 function App() {
@@ -42,6 +43,9 @@ function App() {
     case "/KanbanBoard":
       Component = KanbanBoard;
       break;
+    case "/Calendar":
+      Component = Calendar;
+      break;
   }
   return (
     <>
@@ -63,6 +67,7 @@ function App() {
                 <Route path="/login" component={LoginForm}></Route>
                 <Route path="/Settings" component={Settings}></Route>
                 <Route path="/KanbanBoard" component={KanbanBoard}></Route>
+                <Route path="/Calendar" component={Calendar}></Route>
               </Router>
             </Sidebar>
           </div>
