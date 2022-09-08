@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Banner from "./Banner";
 import Team from "./Team";
+import Faqs from "./Faqs";
+import Testimonial from "./Testimonial";
 
 function Dashboard() {
   return (
@@ -97,6 +99,8 @@ function Dashboard() {
         </div>
       </div>
       <Team />
+      <Testimonial />
+      <Faqs />
     </div>
   );
 }
