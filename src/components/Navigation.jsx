@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { useState, useEffect } from "react";
 
 const navigation = [
   { name: "Home", href: "/", current: false },
@@ -9,16 +10,77 @@ const navigation = [
   { name: "Community", href: "/form", current: false },
 ];
 
+// getting values from local storage
+const getDatafromLS = () => {
+  const data = localStorage.getItem("Org");
+  if (data) {
+    return JSON.parse(data);
+  } else {
+    return [];
+  }
+};
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function Navigation() {
-  return (
+  //main array of objects
+  const [Org, setOrg] = useState(getDatafromLS());
+
+  //User Input State
+  const [communityName, setCommunityName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [communityLogo, setcommunityLogo] = useState("");
+  const [profilePic, setprofilePic] = useState("");
+  const [companyName, setCompanyName] = useState("");
+  const [email, setEmail] = useState();
+  const [tagline, setTagline] = useState("");
+
+  const handleOrgSubmit = (e) => {
+    e.preventDefault();
+    //create an obj
+    let organization = {
+      communityName,
+      firstName,
+      lastName,
+      companyName,
+      email,
+      tagline,
+      communityLogo,
+      profilePic,
+    };
+    setOrg([organization]);
+    setCommunityName("");
+    setFirstName("");
+    setLastName("");
+    setCompanyName("");
+    setEmail("");
+    setTagline("");
+    setcommunityLogo("");
+    setprofilePic("");
+    var element = document.getElementById("profile");
+    var file = element.files[0];
+    var reader = new FileReader();
+    reader.onloadend = function () {
+      const profile = String(reader.result);
+      console.log(reader.result);
+      sessionStorage.setItem("profile", profile);
+    };
+    reader.readAsDataURL(file);
+  };
+
+  //saving data to local storage
+  useEffect(() => {
+    localStorage.setItem("Org", JSON.stringify(Org));
+  }, [Org]);
+
+  return Org.map((organization) => (
     <Disclosure as="nav" className="bg-gray-100">
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:pl-4 pr-8">
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
@@ -32,9 +94,12 @@ export default function Navigation() {
                 </Disclosure.Button>
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex flex-shrink-0 items-center lg:mr-10">
-                  <a className="font-bold text-2xl" href="/">
-                   Community Name
+                <div className="flex flex-shrink-0 items-center lg:mr-2">
+                  <a className="font-medium text-2xl" href="/">
+                    Pensil{" "}
+                    <span className="font-semibold">
+                      🞨 {organization.communityName}
+                    </span>
                   </a>
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
@@ -157,5 +222,5 @@ export default function Navigation() {
         </>
       )}
     </Disclosure>
-  );
+  ));
 }

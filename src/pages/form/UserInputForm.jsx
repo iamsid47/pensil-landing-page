@@ -25,10 +25,10 @@ function UserInputForm() {
   const [companyName, setCompanyName] = useState("");
   const [email, setEmail] = useState();
   const [tagline, setTagline] = useState("");
+  const [Description, setDescription] = useState("");
 
   // handle submission
   const uploadedImage = React.useRef(null);
-
 
   const handleImageUpload = (e) => {
     const [file] = e.target.files;
@@ -39,7 +39,7 @@ function UserInputForm() {
       reader.onload = (e) => {
         current.src = e.target.result;
         const clogo = String(reader.result);
-        sessionStorage.setItem("logo",clogo);
+        sessionStorage.setItem("logo", clogo);
       };
       reader.readAsDataURL(file);
     }
@@ -57,6 +57,7 @@ function UserInputForm() {
       tagline,
       communityLogo,
       profilePic,
+      Description,
     };
     setOrg([organization]);
     setCommunityName("");
@@ -67,14 +68,15 @@ function UserInputForm() {
     setTagline("");
     setcommunityLogo("");
     setprofilePic("");
+    setDescription("");
     var element = document.getElementById("profile");
     var file = element.files[0];
     var reader = new FileReader();
-    reader.onloadend = function() {
+    reader.onloadend = function () {
       const profile = String(reader.result);
-      console.log(reader.result)
-      sessionStorage.setItem("profile",profile);
-    }
+      console.log(reader.result);
+      sessionStorage.setItem("profile", profile);
+    };
     reader.readAsDataURL(file);
   };
 
@@ -139,6 +141,7 @@ function UserInputForm() {
                 className="w-full px-3 py-2 text-gray-800 transition duration-100 border rounded-md outline-none bg-gray-50 focus:ring ring-blue-300"
               />
             </div>
+            <br />
             <div>
               <label
                 for="first-name"
@@ -156,6 +159,26 @@ function UserInputForm() {
                 className="w-full px-3 py-2 text-gray-800 transition duration-100 border rounded-md outline-none bg-gray-50 focus:ring ring-blue-300"
               />
             </div>
+            <br />
+            <div className="col-span-1">
+              <label
+                for="Profile Image"
+                className="inline-block mb-2 text-sm font-medium text-gray-500 sm:text-base"
+              >
+                Profile Image
+              </label>
+              <input
+                id="profile"
+                name="Profile Image"
+                type="file"
+                accept="image/*"
+                multiple="false"
+                onChange={(e) => setprofilePic(e.target.value)}
+                value={profilePic}
+                className="w-full px-3 py-2 text-gray-800 transition duration-100 border rounded-md outline-none bg-gray-50 focus:ring ring-blue-300"
+              ></input>
+            </div>
+            <br />
             <div>
               <label
                 for="first-name"
@@ -235,31 +258,36 @@ function UserInputForm() {
                 className="w-full px-3 py-2 text-gray-800 transition duration-100 border rounded-md outline-none bg-gray-50 focus:ring ring-blue-300"
               />
             </div>
-
-            <div className="col-span-1">
+            <div className="sm:col-span-2">
               <label
-                for="Profile Image"
+                for="Community-Description"
                 className="inline-block mb-2 text-sm font-medium text-gray-500 sm:text-base"
               >
-                Profile Image
+                Description
               </label>
               <input
-                id="profile"
-                name="Profile Image"
-                type="file"
-                accept="image/*"
-                multiple="false"
-                onChange={(e) => setprofilePic(e.target.value)}
-                value={profilePic}
+                name="Community-Description"
+                onChange={(e) => setDescription(e.target.value)}
+                value={Description}
+                placeholder="Blah Blah Blah :)"
                 className="w-full px-3 py-2 text-gray-800 transition duration-100 border rounded-md outline-none bg-gray-50 focus:ring ring-blue-300"
-              ></input>
+              />
             </div>
+
             <div className="col-span-2">
               <button className="px-6 py-2 mt-2 shadow-lg hover:bg-blue-700 bg-blue-500 rounded-xl text-white">
                 Submit
               </button>
             </div>
           </form>
+          <div>
+            {Org.length > 0 && (
+              <p className="text-green-600 tracking-tight text-lg p-4">
+                Great! Checkout the preview of your community by clicking <br />
+                the preview button unlocked above!
+              </p>
+            )}
+          </div>
         </div>
       </div>
     </>
