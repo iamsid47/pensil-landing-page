@@ -1,13 +1,13 @@
 import React from "react";
 
-const Team = () => {
-  return (
+const Team = ({ Org }) => {
+  return Org.map((organization) => (
     <>
       <section class="py-20 pb-32 bg-gradient-to-r from-indigo-100 via-red-100 to-yellow-100 rounded-xl shadow-xl my-5">
         <div class="relative max-w-6xl px-10 mx-auto">
           <div class="flex flex-col items-start justify-start mb-12">
             <h2 class="inline-block mb-2 mr-5 text-4xl font-extrabold tracking-tight ">
-              Meet the Team
+              Meet the Team @ {organization.companyName}
             </h2>
             <p class="text-xl text-gray-700">
               Meet the awesome team behind the magic 🔮
@@ -25,7 +25,7 @@ const Team = () => {
               <div class="flex-1 min-w-0">
                 <a href="#_" class="focus:outline-none">
                   <p class="text-lg font-medium text-gray-900 leading-tight">
-                    Kevin Jones
+                    {organization.firstName} {organization.lastName}
                   </p>
                   <p class="text-sm bg-gradient-to-r from-indigo-400 via-red-400 to-yellow-400 font-bold bg-clip-text text-transparent truncate uppercase">
                     Admin
@@ -227,7 +227,7 @@ const Team = () => {
         </div>
       </section>
     </>
-  );
+  ));
 };
 
 export default Team;

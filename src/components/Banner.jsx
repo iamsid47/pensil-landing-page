@@ -1,13 +1,13 @@
 import React from "react";
 
-function Banner() {
-  return (
+function Banner({ Org }) {
+  return Org.map((organization) => (
     <div className="grid shadow-xl h-52 border bg-gradient-to-br from-purple-800 via-violet-900 to-purple-800 text-white my-2 content-end rounded-xl">
       <span className="text-4xl font-bold px-5 py-6 overflow-hidden">
-        Community Tagline Goes Here
+        {organization.tagline}
       </span>
     </div>
-  );
+  ));
 }
 
 export default Banner;
