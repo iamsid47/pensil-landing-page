@@ -17,8 +17,8 @@ const Team = ({ Org }) => {
             <div className="relative z-10 flex items-center w-full h-full px-6 py-5 bg-gray-100 rounded-lg">
               <div className="flex-shrink-0 mr-4">
                 <img
-                  className="w-16 h-16 rounded-full"
-                  src="https://images.unsplash.com/photo-1543984613-f55ca6a1ba35?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=face&w=800&h=800&q=80"
+                  class="w-16 h-16 rounded-full"
+                  src={sessionStorage.getItem("profile")}
                   alt="aidjasdpasjdp"
                 />
               </div>
