@@ -160,7 +160,7 @@ class KanbanBoard extends React.Component {
       Status: "Close",
       Summary: "Analyze grid control.",
       Type: "Story",
-      Priority: "High",
+      Priority: "Low",
       Estimate: 2.5,
       Assignee: "Margaret hamilt",
     },
@@ -260,7 +260,8 @@ class KanbanBoard extends React.Component {
           selectionType: "Multiple",
         }}
         width="100%"
-        height="480px"
+        height="100%"
+        className="overflow-y-scroll"
         swimlaneSettings={{ keyField: "Assignee" }}
         enableTooltip={true}
         tooltipTemplate={this.cardTooltipTemplate}
