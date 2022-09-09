@@ -29,6 +29,7 @@ function UserInputForm() {
   // handle submission
   const uploadedImage = React.useRef(null);
 
+
   const handleImageUpload = (e) => {
     const [file] = e.target.files;
     if (file) {
@@ -37,6 +38,8 @@ function UserInputForm() {
       current.file = file;
       reader.onload = (e) => {
         current.src = e.target.result;
+        const clogo = String(reader.result);
+        sessionStorage.setItem("logo",clogo);
       };
       reader.readAsDataURL(file);
     }
@@ -64,6 +67,15 @@ function UserInputForm() {
     setTagline("");
     setcommunityLogo("");
     setprofilePic("");
+    var element = document.getElementById("profile");
+    var file = element.files[0];
+    var reader = new FileReader();
+    reader.onloadend = function() {
+      const profile = String(reader.result);
+      console.log(reader.result)
+      sessionStorage.setItem("profile",profile);
+    }
+    reader.readAsDataURL(file);
   };
 
   //saving data to local storage
@@ -136,6 +148,7 @@ function UserInputForm() {
               </label>
               <input
                 name="community-logo"
+                id="community_logo"
                 onChange={(e) => setcommunityLogo(e.target.value)}
                 value={communityLogo}
                 placeholder="Community Logo"
@@ -231,11 +244,12 @@ function UserInputForm() {
                 Profile Image
               </label>
               <input
+                id="profile"
                 name="Profile Image"
                 type="file"
                 accept="image/*"
                 multiple="false"
-                onChange={handleImageUpload}
+                onChange={(e) => setprofilePic(e.target.value)}
                 value={profilePic}
                 className="w-full px-3 py-2 text-gray-800 transition duration-100 border rounded-md outline-none bg-gray-50 focus:ring ring-blue-300"
               ></input>

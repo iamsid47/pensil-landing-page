@@ -55,7 +55,7 @@ function App() {
 
       <BrowserRouter>
         <div className="container grid grid-cols-1 md:grid-cols-5 ">
-          <div className="grid ">
+          <div className="grid grid-cols-2 lg:w-64">
             <Sidebar>
               <Router>
                 <Route exact path="/" component={Dash}></Route>
@@ -71,7 +71,7 @@ function App() {
               </Router>
             </Sidebar>
           </div>
-          <div className="grid md:col-span-4 lg:col-span-3  py-4 px-4">
+          <div className="grid md:col-span-5 lg:col-span-3  py-4 px-4">
             <Component />
           </div>
           <div></div>
