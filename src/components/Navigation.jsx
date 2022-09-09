@@ -4,10 +4,10 @@ import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState, useEffect } from "react";
 
 const navigation = [
-  { name: "Home", href: "/", current: false },
+  { name: "Home", href: "/dash", current: false },
   { name: "Login", href: "/login", current: false },
   { name: "Settings", href: "/settings", current: false },
-  { name: "Community", href: "/form", current: false },
+  { name: "Community", href: "/", current: false },
 ];
 
 // getting values from local storage

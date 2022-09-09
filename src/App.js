@@ -17,7 +17,7 @@ import Banner from "./components/Banner.jsx";
 function App() {
   let Component;
   switch (window.location.pathname) {
-    case "/":
+    case "/dash":
       Component = Dash;
       break;
     case "/explore":
@@ -32,7 +32,7 @@ function App() {
     case "/Introduction":
       Component = Introduction;
       break;
-    case "/form":
+    case "/":
       Component = UserInputForm;
       break;
     case "/login":
@@ -62,12 +62,12 @@ function App() {
           <div className="grid grid-cols-2 lg:w-64">
             <Sidebar>
               <Router>
-                <Route exact path="/" component={Dash}></Route>
+                <Route exact path="/dash" component={Dash}></Route>
                 <Route path="/explore" component={Explore}></Route>
                 <Route path="/events" component={Events}></Route>
                 <Route path="/dm" component={Dm}></Route>
                 <Route path="/Introduction" component={Introduction}></Route>
-                <Route path="/form" component={UserInputForm}></Route>
+                <Route path="/" component={UserInputForm}></Route>
                 <Route path="/login" component={LoginForm}></Route>
                 <Route path="/Settings" component={Settings}></Route>
                 <Route path="/Calendar" component={Calendar}></Route>

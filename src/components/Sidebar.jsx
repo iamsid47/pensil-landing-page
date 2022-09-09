@@ -12,7 +12,7 @@ const Sidebar = ({ Children }) => {
       <div className="lg:grid px-2 py-1 md:block sticky top-20">
         <ul className="px-4 py-2">
           <li className="font-semibold text-[14px] text-gray-500">MAIN</li>
-          <a href="/">
+          <a href="/dash">
             <li className="my-1 py-1 px-2 text-[14px] rounded-md font-semibold lg:w-52 hover:bg-blue-500 hover:text-gray-100">
               🚀 Dashboard
             </li>
