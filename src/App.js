@@ -11,6 +11,7 @@ import Settings from "./pages/form/Settings.jsx";
 import Navigation from "./components/Navigation.jsx";
 import Calendar from "./pages/Calendar.tsx";
 import Invitation from "./pages/Invitation.jsx";
+import Trending from "./pages/Trending.jsx";
 import Banner from "./components/Banner.jsx";
 
 function App() {
@@ -46,6 +47,9 @@ function App() {
     case "/invite":
       Component = Invitation;
       break;
+    case "/trending":
+      Component = Trending;
+      break;
   }
   return (
     <>
@@ -68,6 +72,7 @@ function App() {
                 <Route path="/Settings" component={Settings}></Route>
                 <Route path="/Calendar" component={Calendar}></Route>
                 <Route path="/invite" component={Invitation}></Route>
+                <Route path="/trending" component={Trending}></Route>
               </Router>
             </Sidebar>
           </div>

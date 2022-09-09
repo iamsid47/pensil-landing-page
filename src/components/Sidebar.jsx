@@ -41,6 +41,11 @@ const Sidebar = ({ Children }) => {
               📅 Calender
             </li>
           </a>
+          <a href="/trending">
+            <li className="my-1 py-1 px-2 text-[14px] rounded-md font-semibold w-52 hover:bg-blue-500 hover:text-gray-100">
+              🔥 Trending
+            </li>
+          </a>
           <a href="/invite">
             <li className="my-1 py-1 px-2 text-[14px] rounded-md font-semibold w-52 hover:bg-blue-500 hover:text-gray-100">
               💖 Invite

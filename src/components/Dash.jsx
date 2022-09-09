@@ -3,6 +3,7 @@ import Banner from "./Banner";
 import Team from "./Team";
 import Faqs from "./Faqs";
 import Testimonial from "./Testimonial";
+import Description from "./Description";
 
 const getDatafromLS = () => {
   const data = localStorage.getItem("Org");
@@ -59,8 +60,11 @@ function Dashboard() {
   return (
     <div>
       <Banner Org={Org} />
+      <Description />
       <div className="pt-2 mt-10">
-        <h1 className="text-3xl px-4 font-medium pb-4">Quick Updates</h1>
+        <h1 className="text-3xl px-4 font-bold bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 bg-clip-text text-transparent pb-4">
+          Latest Updates
+        </h1>
       </div>
       <div className="p-2 w-full  bg-white rounded-lg border shadow-md sm:py-4 px-8 ">
         <div className="flow-root">
