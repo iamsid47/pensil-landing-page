@@ -41,9 +41,9 @@ const Sidebar = ({ Children }) => {
               📅 Calender
             </li>
           </a>
-          <a href="/KanbanBoard">
-            <li className="my-1 py-1 px-2 text-[14px] rounded-md font-semibold lg:w-52 hover:bg-blue-500 hover:text-gray-100">
-              ✅ Kanban
+          <a href="/invite">
+            <li className="my-1 py-1 px-2 text-[14px] rounded-md font-semibold w-52 hover:bg-blue-500 hover:text-gray-100">
+              💖 Invite
             </li>
           </a>
         </ul>
