@@ -88,7 +88,7 @@ function UserInputForm() {
               </div>
             )}
             {Org.length > 0 && (
-              <a href="/">
+              <a href="/dash">
                 <button className="px-6 py-2 mt-2 animate-bounce shadow-lg hover:bg-blue-700 bg-blue-400 rounded-xl text-white">
                   Preview!
                 </button>
