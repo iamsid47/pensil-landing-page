@@ -58,12 +58,7 @@ function Dashboard() {
 
   return (
     <div>
-<<<<<<< HEAD
-      <Banner />
-      
-=======
       <Banner Org={Org} />
->>>>>>> temp
       <div className="pt-2 mt-10">
         <h1 className="text-3xl px-4 font-medium pb-4">Quick Updates</h1>
       </div>

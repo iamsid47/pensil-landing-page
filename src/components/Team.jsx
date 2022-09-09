@@ -1,15 +1,7 @@
 import React from "react";
 
-<<<<<<< HEAD
-const Team = () => {
-  let fname = sessionStorage.getItem("fname");
-  let lname = sessionStorage.getItem("lname");
-  let email = sessionStorage.getItem("email");
-  return (
-=======
 const Team = ({ Org }) => {
   return Org.map((organization) => (
->>>>>>> temp
     <>
       <section class="py-20 pb-32 bg-gradient-to-r from-indigo-100 via-red-100 to-yellow-100 rounded-xl shadow-xl my-5">
         <div class="relative max-w-6xl px-10 mx-auto">
