@@ -26,25 +26,7 @@ function UserInputForm() {
   const [email, setEmail] = useState();
   const [tagline, setTagline] = useState("");
 
-  // handle submission
-  const uploadedImage = React.useRef(null);
-
-
-  const handleImageUpload = (e) => {
-    const [file] = e.target.files;
-    if (file) {
-      const reader = new FileReader();
-      const { current } = uploadedImage;
-      current.file = file;
-      reader.onload = (e) => {
-        current.src = e.target.result;
-        const clogo = String(reader.result);
-        sessionStorage.setItem("logo",clogo);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
+ 
   const handleOrgSubmit = (e) => {
     e.preventDefault();
     //create an obj
@@ -76,6 +58,16 @@ function UserInputForm() {
       sessionStorage.setItem("profile",profile);
     }
     reader.readAsDataURL(file);
+
+    var element2 = document.getElementById("community_logo");
+    var file2 = element2.files[0];
+    var reader2 = new FileReader();
+    reader2.onloadend = function() {
+      const clogo = String(reader2.result);
+      console.log(reader2.result)
+      sessionStorage.setItem("logo",clogo);
+    }
+    reader2.readAsDataURL(file2);
   };
 
   //saving data to local storage
