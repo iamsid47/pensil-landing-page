@@ -1,14 +1,69 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
 import Banner from "./Banner";
 import Team from "./Team";
 import Faqs from "./Faqs";
 import Testimonial from "./Testimonial";
 
+const getDatafromLS = () => {
+  const data = localStorage.getItem("Org");
+  if (data) {
+    return JSON.parse(data);
+  } else {
+    return [];
+  }
+};
+
 function Dashboard() {
+  const [Org, setOrg] = useState(getDatafromLS());
+
+  //User Input State
+  const [communityName, setCommunityName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [communityLogo, setcommunityLogo] = useState("");
+  const [profilePic, setprofilePic] = useState("");
+  const [companyName, setCompanyName] = useState("");
+  const [email, setEmail] = useState();
+  const [tagline, setTagline] = useState("");
+
+  // handle submission
+  const handleOrgSubmit = (e) => {
+    e.preventDefault();
+    //create an obj
+    let organization = {
+      communityName,
+      firstName,
+      lastName,
+      companyName,
+      email,
+      tagline,
+      communityLogo,
+      profilePic,
+    };
+    setOrg([organization]);
+    setCommunityName("");
+    setFirstName("");
+    setLastName("");
+    setCompanyName("");
+    setEmail("");
+    setTagline("");
+    setcommunityLogo("");
+    setprofilePic("");
+  };
+
+  //saving data to local storage
+  useEffect(() => {
+    localStorage.setItem("Org", JSON.stringify(Org));
+  }, [Org]);
+
   return (
     <div>
+<<<<<<< HEAD
       <Banner />
       
+=======
+      <Banner Org={Org} />
+>>>>>>> temp
       <div className="pt-2 mt-10">
         <h1 className="text-3xl px-4 font-medium pb-4">Quick Updates</h1>
       </div>
@@ -99,7 +154,7 @@ function Dashboard() {
           </ul>
         </div>
       </div>
-      <Team />
+      <Team Org={Org} />
       <Testimonial />
       <Faqs />
     </div>

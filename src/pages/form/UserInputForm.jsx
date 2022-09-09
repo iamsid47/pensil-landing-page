@@ -1,33 +1,94 @@
 import React from "react";
+import { useEffect } from "react";
+import { useState, useRef } from "react";
+
+// getting values from local storage
+const getDatafromLS = () => {
+  const data = localStorage.getItem("Org");
+  if (data) {
+    return JSON.parse(data);
+  } else {
+    return [];
+  }
+};
 
 function UserInputForm() {
-  
-  function submit(){
-    sessionStorage.clear()
-    let cname = document.getElementById("community_name").value;
-    let fname = document.getElementById("first_name").value;
-    let lname = document.getElementById("last_name").value;
-    let ctagline = document.getElementById("community_tagline").value;
-    let email = document.getElementById("email").value;
-    sessionStorage.setItem("cname",cname);
-    sessionStorage.setItem("fname",fname);
-    sessionStorage.setItem("lname",lname);
-    sessionStorage.setItem("ctagline",ctagline);
-    sessionStorage.setItem("email",email);
-    const comlogo = document.querySelector("#community_logo");
+  //main array of objects
+  const [Org, setOrg] = useState(getDatafromLS());
 
-    comlogo.addEventListener("change",function(){
-        const reader = new FileReader();
-        reader.addEventListener("load",()=>{
-          sessionStorage.setItem("logo",reader.result)
-          console.log(reader.result)
-        })
-    })
-  }
+  //User Input State
+  const [communityName, setCommunityName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [communityLogo, setcommunityLogo] = useState("");
+  const [profilePic, setprofilePic] = useState("");
+  const [companyName, setCompanyName] = useState("");
+  const [email, setEmail] = useState();
+  const [tagline, setTagline] = useState("");
+
+  // handle submission
+  const uploadedImage = React.useRef(null);
+
+  const handleImageUpload = (e) => {
+    const [file] = e.target.files;
+    if (file) {
+      const reader = new FileReader();
+      const { current } = uploadedImage;
+      current.file = file;
+      reader.onload = (e) => {
+        current.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleOrgSubmit = (e) => {
+    e.preventDefault();
+    //create an obj
+    let organization = {
+      communityName,
+      firstName,
+      lastName,
+      companyName,
+      email,
+      tagline,
+      communityLogo,
+      profilePic,
+    };
+    setOrg([organization]);
+    setCommunityName("");
+    setFirstName("");
+    setLastName("");
+    setCompanyName("");
+    setEmail("");
+    setTagline("");
+    setcommunityLogo("");
+    setprofilePic("");
+  };
+
+  //saving data to local storage
+  useEffect(() => {
+    localStorage.setItem("Org", JSON.stringify(Org));
+  }, [Org]);
+
   return (
     <>
       <div className="py-10 bg-white md:py-16">
         <div className="px-10 mx-auto max-w-7xl md:px-16">
+          <div className="py-4 flex justify-end">
+            {Org.length < 1 && (
+              <div className="text-sm">
+                Fill The Form & See Preview Button Pop-up Here!
+              </div>
+            )}
+            {Org.length > 0 && (
+              <a href="/">
+                <button className="px-6 py-2 mt-2 animate-bounce shadow-lg hover:bg-blue-700 bg-blue-400 rounded-xl text-white">
+                  Preview!
+                </button>
+              </a>
+            )}
+          </div>
           <div className="max-w-3xl mx-auto mb-10 md:mb-16">
             <p className="text-xs font-bold text-blue-500 uppercase">
               By Pensil ❤️
@@ -39,7 +100,7 @@ function UserInputForm() {
               Fill out some simple questions below and get started with your
               brand new community! If you need some help, you can contact us{" "}
               <a
-                href="mailto:saakshiraut28@gmail.com"
+                href="mailto:siddheshkulthe43@gmail.com"
                 className="font-medium text-blue-500 underline"
               >
                 here
@@ -47,41 +108,45 @@ function UserInputForm() {
               !
             </p>
           </div>
-          <form className="grid max-w-3xl gap-4 mx-auto sm:grid-cols-2">
+          <form
+            className="grid max-w-3xl gap-4 mx-auto sm:grid-cols-2"
+            onSubmit={handleOrgSubmit}
+          >
             <div>
               <label
-                htmlFor="first-name"
+                for="first-name"
                 className="inline-block mb-2 text-sm font-medium text-gray-500 sm:text-base"
               >
                 Community Name
               </label>
               <input
-               
-                id="community_name"
-                name="community_name"
+                name="community-name"
+                onChange={(e) => setCommunityName(e.target.value)}
+                value={communityName}
                 placeholder="Awesome Coders"
                 className="w-full px-3 py-2 text-gray-800 transition duration-100 border rounded-md outline-none bg-gray-50 focus:ring ring-blue-300"
               />
             </div>
             <div>
               <label
-                htmlFor="first-name"
+                for="first-name"
                 className="inline-block mb-2 text-sm font-medium text-gray-500 sm:text-base"
-
               >
                 Community Logo
               </label>
               <input
                 id="community_logo"
                 name="community-logo"
-                accept="image/png, image/jpg"
+                onChange={(e) => setcommunityLogo(e.target.value)}
+                value={communityLogo}
+                placeholder="Community Logo"
                 type="file"
                 className="w-full px-3 py-2 text-gray-800 transition duration-100 border rounded-md outline-none bg-gray-50 focus:ring ring-blue-300"
               />
             </div>
             <div>
               <label
-                htmlFor="first-name"
+                for="first-name"
                 className="inline-block mb-2 text-sm font-medium text-gray-500 sm:text-base"
               >
                 First name
@@ -89,6 +154,8 @@ function UserInputForm() {
               <input
                 id="first_name"
                 name="first-name"
+                onChange={(e) => setFirstName(e.target.value)}
+                value={firstName}
                 placeholder="Jon"
                 className="w-full px-3 py-2 text-gray-800 transition duration-100 border rounded-md outline-none bg-gray-50 focus:ring ring-blue-300"
               />
@@ -96,15 +163,16 @@ function UserInputForm() {
 
             <div>
               <label
-                htmlFor="last-name"
+                for="last-name"
                 className="inline-block mb-2 text-sm font-medium text-gray-500 sm:text-base"
               >
                 Last name
               </label>
               <input
-                
                 id="last_name"
                 name="last-name"
+                onChange={(e) => setLastName(e.target.value)}
+                value={lastName}
                 placeholder="Snow"
                 className="w-full px-3 py-2 text-gray-800 transition duration-100 border rounded-md outline-none bg-gray-50 focus:ring ring-blue-300"
               />
@@ -112,7 +180,23 @@ function UserInputForm() {
 
             <div className="sm:col-span-2">
               <label
-                htmlFor="email"
+                for="company"
+                className="inline-block mb-2 text-sm font-medium text-gray-500 sm:text-base"
+              >
+                Company Name
+              </label>
+              <input
+                name="company"
+                onChange={(e) => setCompanyName(e.target.value)}
+                value={companyName}
+                placeholder="Sample Company. Co"
+                className="w-full px-3 py-2 text-gray-800 transition duration-100 border rounded-md outline-none bg-gray-50 focus:ring ring-blue-300"
+              />
+            </div>
+
+            <div className="sm:col-span-2">
+              <label
+                for="email"
                 className="inline-block mb-2 text-sm font-medium text-gray-500 sm:text-base"
               >
                 Email
@@ -120,6 +204,8 @@ function UserInputForm() {
               <input
                 id="email"
                 name="email"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
                 placeholder="dudethisiscool23@gmail.com"
                 className="w-full px-3 py-2 text-gray-800 transition duration-100 border rounded-md outline-none bg-gray-50 focus:ring ring-blue-300"
               />
@@ -127,15 +213,16 @@ function UserInputForm() {
 
             <div className="sm:col-span-2">
               <label
-                htmlFor="Community-Tagline"
+                for="Community-Tagline"
                 className="inline-block mb-2 text-sm font-medium text-gray-500 sm:text-base"
               >
                 Community Tagline
               </label>
               <input
-                
                 id="community_tagline"
                 name="Community-Tagline"
+                onChange={(e) => setTagline(e.target.value)}
+                value={tagline}
                 placeholder="Rising Coders Of Today!"
                 className="w-full px-3 py-2 text-gray-800 transition duration-100 border rounded-md outline-none bg-gray-50 focus:ring ring-blue-300"
               />
@@ -143,7 +230,7 @@ function UserInputForm() {
 
             <div className="col-span-1">
               <label
-                htmlFor="Profile Image"
+                for="Profile Image"
                 className="inline-block mb-2 text-sm font-medium text-gray-500 sm:text-base"
               >
                 Profile Image
@@ -152,21 +239,20 @@ function UserInputForm() {
                 id="profile_img"
                 name="Profile Image"
                 type="file"
+                accept="image/*"
+                multiple="false"
+                onChange={handleImageUpload}
+                value={profilePic}
                 className="w-full px-3 py-2 text-gray-800 transition duration-100 border rounded-md outline-none bg-gray-50 focus:ring ring-blue-300"
               ></input>
             </div>
-            <button className="px-6 py-2 mt-2 shadow-lg hover:bg-blue-700 bg-blue-500 rounded-xl text-white" onClick={()=>submit()} >
-                Submit
-              </button>
- 
+            <button
+              className="px-6 py-2 mt-2 shadow-lg hover:bg-blue-700 bg-blue-500 rounded-xl text-white"
+              onClick={() => submit()}
+            >
+              Submit
+            </button>
           </form>
-          <div className="col-span-2">
-         
-              
-            </div>
-          <p className="max-w-3xl mx-auto mt-5 text-xs text-gray-400">
-            Please allow up to 24-48 hour response during the weekdays.
-          </p>
         </div>
       </div>
     </>

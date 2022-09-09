@@ -1,7 +1,59 @@
 import React from "react";
+import { useState, useEffect } from "react";
+
+const getDatafromLS = () => {
+  const data = localStorage.getItem("Org");
+  if (data) {
+    return JSON.parse(data);
+  } else {
+    return [];
+  }
+};
 
 function Settings() {
-  return (
+  const [Org, setOrg] = useState(getDatafromLS());
+
+  //User Input State
+  const [communityName, setCommunityName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [communityLogo, setcommunityLogo] = useState("");
+  const [profilePic, setprofilePic] = useState("");
+  const [companyName, setCompanyName] = useState("");
+  const [email, setEmail] = useState();
+  const [tagline, setTagline] = useState("");
+
+  // handle submission
+  const handleOrgSubmit = (e) => {
+    e.preventDefault();
+    //create an obj
+    let organization = {
+      communityName,
+      firstName,
+      lastName,
+      companyName,
+      email,
+      tagline,
+      communityLogo,
+      profilePic,
+    };
+    setOrg([organization]);
+    setCommunityName("");
+    setFirstName("");
+    setLastName("");
+    setCompanyName("");
+    setEmail("");
+    setTagline("");
+    setcommunityLogo("");
+    setprofilePic("");
+  };
+
+  //saving data to local storage
+  useEffect(() => {
+    localStorage.setItem("Org", JSON.stringify(Org));
+  }, [Org]);
+
+  return Org.map((organization) => (
     <>
       <section class="relative flex items-center justify-center w-full h-full bg-white">
         <div class="relative hidden w-1/4 h-full bg-center bg-cover lg:block"></div>
@@ -43,7 +95,7 @@ function Settings() {
                 class="inline-block px-3 p-1.5 text-left text-white bg-gray-800 rounded no-underline cursor-pointer focus:no-underline"
               >
                 <span class="text-lg font-bold leading-tight">
-                  Community Name
+                  {organization.companyName}
                 </span>
               </a>
             </div>
@@ -57,7 +109,7 @@ function Settings() {
                 class="border-gray-300 focus:border-blue-600 peer border rounded-md px-3.5 py-3 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-blue-600 focus:ring-opacity-0 caret-blue-600"
                 placeholder="Email Address"
               >
-                sample@gmail.com
+                {organization.email}
               </label>
               <label
                 for="email"
@@ -128,7 +180,7 @@ function Settings() {
         </div>
       </section>
     </>
-  );
+  ));
 }
 
 export default Settings;
