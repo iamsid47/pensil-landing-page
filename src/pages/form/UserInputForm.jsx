@@ -27,6 +27,7 @@ function UserInputForm() {
   const [tagline, setTagline] = useState("");
   const [Description, setDescription] = useState("");
 
+<<<<<<< HEAD
   // handle submission
   const uploadedImage = React.useRef(null);
 
@@ -45,6 +46,9 @@ function UserInputForm() {
     }
   };
 
+=======
+ 
+>>>>>>> 63d234e1dde1f3c220d96f4575fe9fa161bf2dac
   const handleOrgSubmit = (e) => {
     e.preventDefault();
     //create an obj
@@ -78,6 +82,16 @@ function UserInputForm() {
       sessionStorage.setItem("profile", profile);
     };
     reader.readAsDataURL(file);
+
+    var element2 = document.getElementById("community_logo");
+    var file2 = element2.files[0];
+    var reader2 = new FileReader();
+    reader2.onloadend = function() {
+      const clogo = String(reader2.result);
+      console.log(reader2.result)
+      sessionStorage.setItem("logo",clogo);
+    }
+    reader2.readAsDataURL(file2);
   };
 
   //saving data to local storage
